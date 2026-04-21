@@ -1,0 +1,780 @@
+#VRML_SIM R2025a utf8
+
+WorldInfo {
+  title "Industrial Pick and Place - ROS2 Jazzy"
+}
+Viewpoint {
+  orientation 0.6929292013887699 -0.6109594585200014 -0.3828546224190955 3.792697005451336
+  position -1.5694805922785882 6.6984968164422085 9.4656501275023
+}
+Background {
+  skyColor [
+    0.85 0.85 0.9
+  ]
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction -0.5 -1 -0.5
+  intensity 3
+  castShadows TRUE
+}
+PointLight {
+  attenuation 0 0 0.5
+  color 1 0.95 0.8
+  intensity 5
+  location 0 3 0
+}
+PointLight {
+  attenuation 0 0 0.5
+  color 1 0.95 0.8
+  intensity 3
+  location -1.5 2.5 0
+}
+PointLight {
+  attenuation 0 0 0.5
+  color 1 0.95 0.8
+  intensity 3
+  location 1.5 2.5 0
+}
+DEF FLOOR Solid {
+  translation 0.16201300076704467 -818.0297722714789 -18565627.262012023
+  rotation 0.9999555134296627 0.002370634884101712 -0.009129690677451497 -2.855695565772173
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.55 0.55 0.58
+        roughness 0.95
+        metalness 0
+      }
+      geometry Box {
+        size 5 0.02 5
+      }
+    }
+  ]
+  name "floor"
+  boundingObject Box {
+    size 5 0.02 5
+  }
+  physics Physics {
+  }
+  linearVelocity 8.328788868044009e-05 -0.42048405969450264 -19085.376967006712
+  angularVelocity 0.017912125746715288 2.7878730859948536e-05 3.2355758456649572e-06
+}
+DEF FLOOR_LINE_1 Solid {
+  translation 0 0.011 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.1
+        roughness 1
+      }
+      geometry Box {
+        size 4.8 0.001 0.05
+      }
+    }
+  ]
+  name "floor_line_1"
+}
+DEF FLOOR_LINE_2 Solid {
+  translation 0 0.011 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.1
+        roughness 1
+      }
+      geometry Box {
+        size 0.05 0.001 4.8
+      }
+    }
+  ]
+  name "floor_line_2"
+}
+DEF WALL_BACK Solid {
+  translation 0 1.5 -2.5
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.75 0.75 0.78
+        roughness 1
+      }
+      geometry Box {
+        size 5 3 0.1
+      }
+    }
+  ]
+  name "wall_back"
+  boundingObject Box {
+    size 5 3 0.1
+  }
+}
+DEF WALL_LEFT Solid {
+  translation -2.5 1.5 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.75 0.75 0.78
+        roughness 1
+      }
+      geometry Box {
+        size 0.1 3 5
+      }
+    }
+  ]
+  name "wall_left"
+  boundingObject Box {
+    size 0.1 3 5
+  }
+}
+DEF WALL_RIGHT Solid {
+  translation 2.5 1.5 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.75 0.75 0.78
+        roughness 1
+      }
+      geometry Box {
+        size 0.1 3 5
+      }
+    }
+  ]
+  name "wall_right"
+  boundingObject Box {
+    size 0.1 3 5
+  }
+}
+DEF SAFETY_STRIPE_1 Solid {
+  translation -2.49 0.5 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.7 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.02 0.2 4.8
+      }
+    }
+  ]
+  name "stripe1"
+}
+DEF SAFETY_STRIPE_2 Solid {
+  translation 2.49 0.5 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.7 0
+        roughness 1
+      }
+      geometry Box {
+        size 0.02 0.2 4.8
+      }
+    }
+  ]
+  name "stripe2"
+}
+DEF CEILING_LIGHT_FRAME_1 Solid {
+  translation -1 2.9 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.9 0.9
+        metalness 0.8
+      }
+      geometry Box {
+        size 0.4 0.05 0.15
+      }
+    }
+  ]
+  name "light_frame_1"
+}
+DEF CEILING_LIGHT_FRAME_2 Solid {
+  translation 1 2.9 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.9 0.9
+        metalness 0.8
+      }
+      geometry Box {
+        size 0.4 0.05 0.15
+      }
+    }
+  ]
+  name "light_frame_2"
+}
+DEF ARM_MOUNT Solid {
+  translation 4.2577660999563e-12 -329.35930546484957 -18566584.513823394
+  rotation 1 1.3583979936059423e-11 -9.094312760259084e-12 1.9569817304448798
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.25 0.25 0.28
+        roughness 0.2
+        metalness 0.9
+      }
+      geometry Cylinder {
+        height 0.02
+        radius 0.18
+      }
+    }
+  ]
+  name "arm_mount"
+  boundingObject Cylinder {
+    height 0.02
+    radius 0.18
+  }
+  physics Physics {
+  }
+  linearVelocity 2.1892045435973632e-15 -0.16934625963510294 -19085.86898127038
+  angularVelocity -0.24532494722783876 -1.7349316700528448e-14 -3.61284433368509e-14
+}
+DEF PICK_CONVEYOR Solid {
+  translation 5.513409185599152e-19 0.18000080377417335 -2.2635688000152476
+  rotation -1 9.600101132885012e-11 4.46659793940427e-11 1.1477355021936952e-07
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.3 0.3 0.32
+        roughness 0.3
+        metalness 0.9
+      }
+      geometry Box {
+        size 0.9 0.36 0.5
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.15 0.15 0.15
+        roughness 0.4
+        metalness 0.8
+      }
+      geometry Box {
+        size 0.85 0.01 0.45
+      }
+    }
+  ]
+  name "pick_conveyor"
+  boundingObject Box {
+    size 0.9 0.36 0.5
+  }
+  physics Physics {
+  }
+  linearVelocity -5.740204535837999e-17 -1.2521660351496476e-07 2.0139768955993582e-10
+  angularVelocity 5.005774402146434e-07 -2.646937156531468e-16 -9.221997611655853e-18
+}
+DEF CONVEYOR_STRIPE_1 Solid {
+  translation -0.25 0.365 -0.85
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.7 0
+        roughness 0.5
+      }
+      geometry Box {
+        size 0.05 0.001 0.45
+      }
+    }
+  ]
+  name "conv_stripe_1"
+}
+DEF CONVEYOR_STRIPE_2 Solid {
+  translation 0 0.365 -0.85
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.7 0
+        roughness 0.5
+      }
+      geometry Box {
+        size 0.05 0.001 0.45
+      }
+    }
+  ]
+  name "conv_stripe_2"
+}
+DEF CONVEYOR_STRIPE_3 Solid {
+  translation 0.25 0.365 -0.85
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.7 0
+        roughness 0.5
+      }
+      geometry Box {
+        size 0.05 0.001 0.45
+      }
+    }
+  ]
+  name "conv_stripe_3"
+}
+DEF PLACE_PLATFORM Solid {
+  translation 17.969322543105257 -3270.9327619596215 -18385213.630674385
+  rotation -0.17692875791454551 -0.8153461941537319 -0.5512774240814156 -2.4394186923792107
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.15 0.35 0.55
+        roughness 0.3
+        metalness 0.7
+      }
+      geometry Box {
+        size 0.9 0.36 0.5
+      }
+    }
+  ]
+  name "place_platform"
+  boundingObject Box {
+    size 0.9 0.36 0.5
+  }
+  physics Physics {
+  }
+  linearVelocity 0.00928279633910709 -1.6902708141560532 -18992.4169083579
+  angularVelocity -5692.918978080615 3897.193609943674 7238.960938948614
+}
+DEF DROP_ZONE Solid {
+  translation 3.9697993532209654 4237.978128632729 -18531545.77824661
+  rotation -0.7332271702010699 -0.36955896616986655 -0.5707925081869865 -2.270453863470844
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.7 0.1
+        roughness 0.4
+        metalness 0.3
+      }
+      geometry Box {
+        size 0.4 0.005 0.4
+      }
+    }
+  ]
+  name "drop_zone"
+  boundingObject Box {
+    size 0.4 0.005 0.4
+  }
+  physics Physics {
+  }
+  linearVelocity 0.002043174893386621 2.1788051735747054 -19067.849886841905
+  angularVelocity -11.051917903867711 -0.01524225326759066 0.09187545602594038
+}
+DEF DROP_ZONE_BORDER Solid {
+  translation 0 0.367 0.85
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.9 0.9
+        roughness 0.3
+      }
+      geometry Box {
+        size 0.42 0.003 0.42
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.7 0.1
+        roughness 0.4
+      }
+      geometry Box {
+        size 0.38 0.004 0.38
+      }
+    }
+  ]
+  name "drop_zone_border"
+}
+DEF BOX_RED Solid {
+  translation 0.2 0.395 -18566272.376721334
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.15 0.15
+        roughness 0.4
+        metalness 0.1
+      }
+      geometry Box {
+        size 0.07 0.07 0.07
+      }
+    }
+  ]
+  name "box_red"
+  boundingObject Box {
+    size 0.07 0.07 0.07
+  }
+  physics Physics {
+    density 300
+  }
+  linearVelocity 0 0 -19085.708160012968
+}
+DEF BOX_GREEN Solid {
+  translation -5.449461125652174e-05 0.5674011856147567 -4252.52377595781
+  rotation -0.9999950958787527 -0.0031317648449567274 1.6352368297801892e-05 1.2010667393808392
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.85 0.1
+        roughness 0.4
+        metalness 0.1
+      }
+      geometry Box {
+        size 0.07 0.07 0.07
+      }
+    }
+  ]
+  name "box_green"
+  boundingObject Box {
+    size 0.07 0.07 0.07
+  }
+  physics Physics {
+    density 300
+  }
+  linearVelocity -0.00024327951453804352 0.07768386435159357 -18985.869331240225
+  angularVelocity -2.5960121894277064 -0.0081301395831182 4.24511556119253e-05
+}
+DEF BOX_BLUE Solid {
+  translation -0.2 0.395 -18566272.376721334
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.1 0.9
+        roughness 0.4
+        metalness 0.1
+      }
+      geometry Box {
+        size 0.07 0.07 0.07
+      }
+    }
+  ]
+  name "box_blue"
+  boundingObject Box {
+    size 0.07 0.07 0.07
+  }
+  physics Physics {
+    density 300
+  }
+  linearVelocity 0 0 -19085.708160012968
+}
+DEF TOOL_CABINET Solid {
+  translation -2.159930550518237 0.6 -2.364682119444462
+  rotation -1.2687958578642165e-15 1 -1.1444620554938148e-15 0.017884157871592886
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.7 0.6 0.1
+        roughness 0.6
+        metalness 0.5
+      }
+      geometry Box {
+        size 0.6 1.2 0.4
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.3 0.3 0.3
+        metalness 0.9
+      }
+      geometry Box {
+        size 0.55 0.02 0.38
+      }
+    }
+  ]
+  name "tool_cabinet"
+  boundingObject Box {
+    size 0.6 1.2 0.4
+  }
+  physics Physics {
+  }
+  linearVelocity 0.00048123024809188316 1.5496162038888475e-18 0.0002239584877857959
+  angularVelocity -7.322480720185101e-18 -0.0004894461754065773 -2.0480324227086712e-17
+}
+DEF CONTROL_PANEL Solid {
+  translation 2.2 0.7 -18559045.409649838
+  rotation -0.027024386034611665 -0.9996335806843439 0.001544968494727418 1.459160831736242e-11
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.2 0.25
+        roughness 0.3
+        metalness 0.7
+      }
+      geometry Box {
+        size 0.5 1.4 0.3
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.4 0.1
+        roughness 0.3
+      }
+      geometry Box {
+        size 0.3 0.2 0.05
+      }
+    }
+  ]
+  name "control_panel"
+  boundingObject Box {
+    size 0.5 1.4 0.3
+  }
+  physics Physics {
+  }
+  linearVelocity -1.4654845068305025e-15 1.8952922990654506e-17 -19081.992369732227
+  angularVelocity -2.027108025435707e-16 -7.497621654512463e-15 1.1591194923244994e-17
+}
+Robot {
+  translation 0 0.02 0
+  children [
+    DEF BASE_CYLINDER Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.2 0.22
+        roughness 0.2
+        metalness 0.9
+      }
+      geometry Cylinder {
+        height 0.04
+        radius 0.12
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2.7134769805708605
+        axis 0 1 0
+      }
+      device [
+        RotationalMotor {
+          name "joint1"
+          maxVelocity 0.8
+          minPosition -3.14
+          maxPosition 3.14
+        }
+        PositionSensor {
+          name "joint1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.02 0
+        rotation 0 1 0 2.7134769805708605
+        children [
+          DEF SHOULDER Shape {
+            appearance PBRAppearance {
+              baseColor 0.85 0.2 0.05
+              roughness 0.3
+              metalness 0.7
+            }
+            geometry Cylinder {
+              height 0.08
+              radius 0.09
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              position 0.55358654949688
+              anchor 0 0.04 0
+            }
+            device [
+              RotationalMotor {
+                name "joint2"
+                maxVelocity 0.8
+                minPosition -1.57
+                maxPosition 1.57
+              }
+              PositionSensor {
+                name "joint2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0 0.04 0
+              rotation 1 0 0 0.5535865494968797
+              children [
+                DEF UPPER_ARM Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.85 0.2 0.05
+                    roughness 0.3
+                    metalness 0.6
+                  }
+                  geometry Box {
+                    size 0.07 0.4 0.07
+                  }
+                }
+                DEF ELBOW_JOINT Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.25 0.25 0.28
+                    roughness 0.2
+                    metalness 0.9
+                  }
+                  geometry Cylinder {
+                    height 0.08
+                    radius 0.065
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position 0.4535309388255934
+                    anchor 0 0.2 0
+                  }
+                  device [
+                    RotationalMotor {
+                      name "joint3"
+                      maxVelocity 0.8
+                      minPosition -1.57
+                      maxPosition 1.57
+                    }
+                    PositionSensor {
+                      name "joint3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0 0.21797811311364984 0.008762844793376919
+                    rotation 1 0 0 0.4535309388255932
+                    children [
+                      DEF LOWER_ARM Shape {
+                        appearance PBRAppearance {
+                          baseColor 0.85 0.2 0.05
+                          roughness 0.3
+                          metalness 0.6
+                        }
+                        geometry Box {
+                          size 0.06 0.35 0.06
+                        }
+                      }
+                      DEF WRIST_JOINT Shape {
+                        appearance PBRAppearance {
+                          baseColor 0.25 0.25 0.28
+                          roughness 0.2
+                          metalness 0.9
+                        }
+                        geometry Cylinder {
+                          height 0.06
+                          radius 0.055
+                        }
+                      }
+                      DEF GRIPPER_BODY Shape {
+                        appearance PBRAppearance {
+                          baseColor 0.2 0.2 0.22
+                          roughness 0.25
+                          metalness 0.85
+                        }
+                        geometry Box {
+                          size 0.06 0.08 0.06
+                        }
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          position 0.03999998960327612
+                          axis 0 0 1
+                          anchor -0.035 0.16 0
+                        }
+                        device [
+                          RotationalMotor {
+                            name "gripper_left"
+                            maxVelocity 1.5
+                            minPosition -0.45
+                            maxPosition 0.45
+                          }
+                          PositionSensor {
+                            name "gripper_left_sensor"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation -0.04119568024933047 0.18977605659331095 0
+                          rotation 0 0 1 0.03999998960327927
+                          children [
+                            Shape {
+                              appearance PBRAppearance {
+                                baseColor 0.15 0.15 0.18
+                                roughness 0.2
+                                metalness 0.9
+                              }
+                              geometry Box {
+                                size 0.022 0.08 0.03
+                              }
+                            }
+                          ]
+                          name "finger_left"
+                          boundingObject Box {
+                            size 0.022 0.08 0.03
+                          }
+                          physics Physics {
+                          }
+                          linearVelocity -0.04529929946280459 -0.359785570234889 -0.42043313741497806
+                          angularVelocity -1.4441134351900438 0.8021173308353724 -0.6890699731204408
+                        }
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          position -0.03999999027842258
+                          axis 0 0 1
+                          anchor 0.035 0.16 0
+                        }
+                        device [
+                          RotationalMotor {
+                            name "gripper_right"
+                            maxVelocity 1.5
+                            minPosition -0.45
+                            maxPosition 0.45
+                          }
+                          PositionSensor {
+                            name "gripper_right_sensor"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0.041195680269433675 0.18977605658912797 0
+                          rotation 0 0 -1 0.03999999027841777
+                          children [
+                            Shape {
+                              appearance PBRAppearance {
+                                baseColor 0.15 0.15 0.18
+                                roughness 0.2
+                                metalness 0.9
+                              }
+                              geometry Box {
+                                size 0.022 0.08 0.03
+                              }
+                            }
+                          ]
+                          name "finger_right"
+                          boundingObject Box {
+                            size 0.022 0.08 0.03
+                          }
+                          physics Physics {
+                          }
+                          linearVelocity -0.07343876784967679 -0.3598005749683958 -0.36086149395230177
+                          angularVelocity -1.4441134144594954 0.8021172577035557 -0.6890700156599752
+                        }
+                      }
+                    ]
+                    name "link3"
+                    boundingObject Box {
+                      size 0.06 0.35 0.06
+                    }
+                    physics Physics {
+                    }
+                    linearVelocity -0.018986896976906704 -0.10833692930041883 -0.18159421196748554
+                    angularVelocity -1.4441134310492687 0.8021173450464544 -0.6890699572985746
+                  }
+                }
+              ]
+              name "link2"
+              boundingObject Box {
+                size 0.07 0.4 0.07
+              }
+              physics Physics {
+              }
+              linearVelocity 1.0753868454186654e-05 -5.230177627007758e-06 -1.2236162598529738e-05
+              angularVelocity -0.7220911159609379 0.8003994105246498 -0.3444951992498957
+            }
+          }
+        ]
+        name "link1"
+        boundingObject Cylinder {
+          height 0.08
+          radius 0.09
+        }
+        physics Physics {
+        }
+        linearVelocity 5.3546457830436545e-06 -2.6155894333404527e-06 -6.10747221406003e-06
+        angularVelocity -1.2501746817652749e-06 0.8000067518418437 -8.466816879317285e-06
+      }
+    }
+  ]
+  name "kuka_arm"
+  controller "<extern>"
+  supervisor TRUE
+}
